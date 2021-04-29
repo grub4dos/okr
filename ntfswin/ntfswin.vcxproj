@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C4A0ECB0-9D6F-41A1-B36B-DB31777961E2}</ProjectGuid>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.25431.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>Debug\</OutDir>
+    <IntDir>Debug\</IntDir>
+    <NMakeBuildCommandLine />
+    <NMakeReBuildCommandLine />
+    <NMakeCleanCommandLine />
+    <NMakeOutput />
+    <NMakePreprocessorDefinitions>WIN32;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>Release\</OutDir>
+    <IntDir>Release\</IntDir>
+    <NMakeBuildCommandLine />
+    <NMakeReBuildCommandLine />
+    <NMakeCleanCommandLine />
+    <NMakeOutput />
+    <NMakePreprocessorDefinitions>WIN32;NDEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="acls.h" />
+    <ClInclude Include="attrib.h" />
+    <ClInclude Include="attrlist.h" />
+    <ClInclude Include="bitmap.h" />
+    <ClInclude Include="bootsect.h" />
+    <ClInclude Include="cache.h" />
+    <ClInclude Include="collate.h" />
+    <ClInclude Include="compat.h" />
+    <ClInclude Include="compress.h" />
+    <ClInclude Include="config.h" />
+    <ClInclude Include="debug.h" />
+    <ClInclude Include="device.h" />
+    <ClInclude Include="device_io.h" />
+    <ClInclude Include="dir.h" />
+    <ClInclude Include="disk.h" />
+    <ClInclude Include="efs.h" />
+    <ClInclude Include="endians.h" />
+    <ClInclude Include="index.h" />
+    <ClInclude Include="inode.h" />
+    <ClInclude Include="layout.h" />
+    <ClInclude Include="lcnalloc.h" />
+    <ClInclude Include="logfile.h" />
+    <ClInclude Include="logging.h" />
+    <ClInclude Include="mft.h" />
+    <ClInclude Include="misc.h" />
+    <ClInclude Include="mst.h" />
+    <ClInclude Include="ntfs.h" />
+    <ClInclude Include="ntfstime.h" />
+    <ClInclude Include="object_id.h" />
+    <ClInclude Include="param.h" />
+    <ClInclude Include="realpath.h" />
+    <ClInclude Include="reparse.h" />
+    <ClInclude Include="runlist.h" />
+    <ClInclude Include="secaudit.h" />
+    <ClInclude Include="security.h" />
+    <ClInclude Include="support.h" />
+    <ClInclude Include="types.h" />
+    <ClInclude Include="unistr.h" />
+    <ClInclude Include="utils.h" />
+    <ClInclude Include="volume.h" />
+    <ClInclude Include="xattrs.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acls.c" />
+    <ClCompile Include="attrib.c" />
+    <ClCompile Include="attrlist.c" />
+    <ClCompile Include="bitmap.c" />
+    <ClCompile Include="bootsect.c" />
+    <ClCompile Include="cache.c" />
+    <ClCompile Include="collate.c" />
+    <ClCompile Include="compat.c" />
+    <ClCompile Include="compress.c" />
+    <ClCompile Include="debug.c" />
+    <ClCompile Include="device.c" />
+    <ClCompile Include="dir.c" />
+    <ClCompile Include="disk.c" />
+    <ClCompile Include="efs.c" />
+    <ClCompile Include="index.c" />
+    <ClCompile Include="inode.c" />
+    <ClCompile Include="lcnalloc.c" />
+    <ClCompile Include="logfile.c" />
+    <ClCompile Include="logging.c" />
+    <ClCompile Include="main.c" />
+    <ClCompile Include="mft.c" />
+    <ClCompile Include="misc.c" />
+    <ClCompile Include="mst.c" />
+    <ClCompile Include="ntfs.c" />
+    <ClCompile Include="object_id.c" />
+    <ClCompile Include="realpath.c" />
+    <ClCompile Include="reparse.c" />
+    <ClCompile Include="runlist.c" />
+    <ClCompile Include="secaudit.c" />
+    <ClCompile Include="security.c" />
+    <ClCompile Include="unistr.c" />
+    <ClCompile Include="unix_io.c" />
+    <ClCompile Include="utils.c" />
+    <ClCompile Include="volume.c" />
+    <ClCompile Include="xattrs.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="utilsex.asm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,134 @@
+## @file
+#   A simple, basic, application showing how the Hello application could be
+#   built using the "Standard C Libraries" from StdLib.
+#
+#  Copyright (c) 2010 - 2011, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution. The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = a
+  FILE_GUID                      = 7cce473b-4f0b-40ec-b4ab-c28bc51cd2cd
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 0.1
+  ENTRY_POINT                    = ShellCEntryLib
+
+#
+#  VALID_ARCHITECTURES           = X64
+#
+
+
+[Sources]
+  acls.c
+  acls.h
+  attrib.c
+  attrib.h
+  attrlist.c
+  attrlist.h
+  bitmap.c
+  bitmap.h
+  bootsect.c
+  bootsect.h
+  cache.c
+  cache.h
+  collate.c
+  collate.h
+  compat.c
+  compat.h
+  compress.c
+  compress.h
+  config.h
+  debug.c
+  debug.h
+  device.c
+  device.h
+  device_io.h
+  dir.c
+  dir.h
+  disk.c
+  disk.h
+  efs.c
+  efs.h
+  endians.h
+  index.c
+  index.h
+  inode.c
+  inode.h
+  layout.h
+  lcnalloc.c
+  lcnalloc.h
+  logfile.c
+  logfile.h
+  logging.c
+  logging.h
+  main.c
+  mft.c
+  mft.h
+  misc.c
+  misc.h
+  mst.c
+  mst.h
+  ntfs.c
+  ntfs.h
+  ntfs.inf
+  ntfstime.h
+  object_id.c
+  object_id.h
+  param.h
+  realpath.c
+  realpath.h
+  reparse.c
+  reparse.h
+  runlist.c
+  runlist.h
+  secaudit.c
+  secaudit.h
+  security.c
+  security.h
+  support.h
+  types.h
+  unistr.c
+  unistr.h
+  unix_io.c
+  utils.c
+  utils.h
+  volume.c
+  volume.h
+  xattrs.c
+  xattrs.h
+
+
+[Packages]
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  LibC
+  LibStdio
+  DevShell
+  LibUefi
+
+[Guids]
+  gEfiGlobalVariableGuid						## CONSUMES  ## Variable:L"SecureBoot"
+  
+[Protocols]
+  gEfiBlockIoProtocolGuid                       # ALWAYS_CONSUMED
+  gEfiLoadedImageProtocolGuid                   # ALWAYS_CONSUMED
+  gEfiSimpleFileSystemProtocolGuid              # ALWAYS_CONSUMED
+  gEfiSimpleTextInputExProtocolGuid             # ALWAYS_CONSUMED
+  gEfiSimplePointerProtocolGuid
+  
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /FAsc /W4 /GL- /wd4200 /wd4201 /wd4244 /wd4267 /wd4245 /wd4389 /wd4366 /wd4706 /wd4701 -D__BYTE_ORDER="__LITTLE_ENDIAN" -D__LITTLE_ENDIAN -DHAVE_CONFIG_H -DHAVE_STDDEF_H 
+  #MSFT:*_*_IA32_CC_FLAGS  = /Oi- /FAsc /W4 /GL- /wd4200 /wd4201 /wd4244 /wd4267 /wd4245 /wd4389 /wd4366 /wd4706 /wd4701 /D __BYTE_ORDER="__LITTLE_ENDIAN" /D __LITTLE_ENDIAN /D HAVE_CONFIG_H /D HAVE_STDDEF_H 
+  #MSFT:*_*_X64_CC_FLAGS  = /wd4200 /wd4201 /wd4244 /wd4267 /wd4245 /wd4389 /wd4366 /wd4706 /wd4701 
+  #MSFT:*_*_X64_INC  = $(WORKSPACE)\StdLib\Include\X64\machine
+  #GCC:*_*_X64_CC_FLAGS  = -D__BYTE_ORDER="__LITTLE_ENDIAN" -D__LITTLE_ENDIAN -DHAVE_CONFIG_H -DHAVE_STDDEF_H

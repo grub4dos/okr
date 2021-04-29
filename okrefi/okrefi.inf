@@ -1,0 +1,99 @@
+## @file
+#  Sample UEFI Application Reference EDKII Module
+#
+#  This is a sample shell application that will print "UEFI Hello World!" to the 
+#  UEFI Console based on PCD setting.
+#
+#  It demos how to use EDKII PCD mechanism to make code more flexible.
+#
+#  Copyright (c) 2008 - 2010, Intel Corporation.
+#
+#  All rights reserved. This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution. The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = okrefi
+  FILE_GUID                      = 6987936E-ED34-44db-AE97-1FA5E4ED2001
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = OkrMain
+
+#
+# The following information is for reference only and not required by the build tools.
+#
+#  VALID_ARCHITECTURES           = IA32 X64 IPF EBC
+#
+
+[Sources]
+  myapp.c
+  vga.c
+  utils.c
+  window.c
+  resource.c
+  partition.c
+  lz4.c
+  func.c
+ face.c
+  jpg.c
+  getlist.c
+  
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  ShellPkg/ShellPkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  IntelFrameworkModulePkg/IntelFrameworkModulePkg.dec  
+  EdkCompatibilityPkg/EdkCompatibilityPkg.dec 
+  UefiCpuPkg/UefiCpuPkg.dec
+  
+[LibraryClasses]
+  DebugLib  
+  UefiLib  
+  UefiApplicationEntryPoint  
+  UefiBootServicesTableLib  
+  UefiRuntimeServicesTableLib  
+  BaseMemoryLib  
+  MemoryAllocationLib  
+  DevicePathLib  
+  PrintLib  
+   BaseLib  
+
+[Guids]
+gEfiFileInfoGuid
+gEfiDiskInfoAhciInterfaceGuid
+
+[Ppis]
+
+[Protocols]
+gEfiBlockIoProtocolGuid
+gEfiDevicePathProtocolGuid
+gEfiComponentNameProtocolGuid
+gEfiDevicePathToTextProtocolGuid
+gEfiBlockIo2ProtocolGuid
+gEfiSimpleTextInProtocolGuid
+gEfiGraphicsOutputProtocolGuid
+gEfiUgaDrawProtocolGuid
+gEfiSimplePointerProtocolGuid
+gEfiSimpleFileSystemProtocolGuid
+gEfiLoadedImageProtocolGuid
+gEfiPrintProtocolGuid
+gEfiMpServiceProtocolGuid
+
+[FeaturePcd]
+  gEfiMdeModulePkgTokenSpaceGuid.PcdHelloWorldPrintEnable
+
+[Pcd]
+  gEfiMdeModulePkgTokenSpaceGuid.PcdHelloWorldPrintString || PcdHelloWorldPrintEnable  ## Valid when gEfiMdeModulePkgTokenSpaceGuid.PcdHelloWorldPrintEnable
+  gEfiMdeModulePkgTokenSpaceGuid.PcdHelloWorldPrintTimes  || PcdHelloWorldPrintEnable  ## Valid when gEfiMdeModulePkgTokenSpaceGuid.PcdHelloWorldPrintEnable
+
+[BuildOptions] 
+#MSFT:*_*_*_CC_FLAGS ==/nologo /c /GS- /X /W4 /Gs32768 /D UNICODE  /GL /Gy /FIAutoGen.h /EHs-c- /GR- /GF /FAs 
+MSFT:*_*_*_CC_FLAGS = /FAsc  /GL- /WX
