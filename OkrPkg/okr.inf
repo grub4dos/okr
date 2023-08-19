@@ -1,0 +1,213 @@
+## @file
+#   A simple, basic, application showing how the Hello application could be
+#   built using the "Standard C Libraries" from StdLib.
+#
+#  Copyright (c) 2010 - 2011, Intel Corporation. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution. The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = okrefi
+  FILE_GUID                      = 7cce473b-4f0b-40ec-b4ab-c28bc51cd2cd
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 9.0
+  ENTRY_POINT                    = OkrMain
+  
+#ShellCEntryLib
+
+#
+#  VALID_ARCHITECTURES           = X64
+#
+
+
+[Sources]
+  ntfswin/acls.c
+  ntfswin/acls.h
+  ntfswin/attrib.c
+  ntfswin/attrib.h
+  ntfswin/attrlist.c
+  ntfswin/attrlist.h
+  ntfswin/bitmap.c
+  ntfswin/bitmap.h
+  ntfswin/bootsect.c
+  ntfswin/bootsect.h
+  ntfswin/cache.c
+  ntfswin/cache.h
+  ntfswin/collate.c
+  ntfswin/collate.h
+  ntfswin/compat.c
+  ntfswin/compat.h
+  ntfswin/compress.c
+  ntfswin/compress.h
+  ntfswin/config.h
+  ntfswin/debug.c
+  ntfswin/debug.h
+  ntfswin/device.c
+  ntfswin/device.h
+  ntfswin/device_io.h
+  ntfswin/dir.c
+  ntfswin/dir.h
+  ntfswin/disk.c
+  ntfswin/disk.h
+  ntfswin/efs.c
+  ntfswin/efs.h
+  ntfswin/endians.h
+  ntfswin/index.c
+  ntfswin/index.h
+  ntfswin/inode.c
+  ntfswin/inode.h
+  ntfswin/layout.h
+  ntfswin/lcnalloc.c
+  ntfswin/lcnalloc.h
+  ntfswin/logfile.c
+  ntfswin/logfile.h
+  ntfswin/logging.c
+  ntfswin/logging.h
+  ntfswin/ntfsresize.c
+ # ntfswin/main.c
+  ntfswin/mft.c
+  ntfswin/mft.h
+  ntfswin/misc.c
+  ntfswin/misc.h
+  ntfswin/mst.c
+  ntfswin/mst.h
+  ntfswin/ntfs.c
+  ntfswin/ntfs.h
+  ntfswin/ntfs.inf
+  ntfswin/ntfstime.h
+  ntfswin/object_id.c
+  ntfswin/object_id.h
+  ntfswin/param.h
+  ntfswin/realpath.c
+  ntfswin/realpath.h
+  ntfswin/reparse.c
+  ntfswin/reparse.h
+  ntfswin/runlist.c
+  ntfswin/runlist.h
+  ntfswin/secaudit.c
+  ntfswin/secaudit.h
+  ntfswin/security.c
+  ntfswin/security.h
+  ntfswin/support.h
+  ntfswin/types.h
+  ntfswin/unistr.c
+  ntfswin/unistr.h
+  ntfswin/unix_io.c
+  ntfswin/utils.c
+  ntfswin/utils.h
+  ntfswin/volume.c
+  ntfswin/volume.h
+  ntfswin/xattrs.c
+  ntfswin/xattrs.h
+
+  okrefi/myapp.c
+  okrefi/vga.c
+  okrefi/utils.c
+  okrefi/window.c
+  okrefi/resource.c
+  okrefi/partition.c
+  okrefi/lz4.c
+  okrefi/func.c
+  okrefi/face.c
+  okrefi/jpg.c
+  okrefi/getlist.c
+  okrefi/ssd/ssd.c
+  okrefi/okrefistr.h
+
+  okrefi/faceFunc.h
+  okrefi/faceFunc.c
+  okrefi/faceUIDefine.h
+  okrefi/autoface.h
+  okrefi/autoface.c
+  okrefi/autofacefunc.h
+  okrefi/autofacefunc.c
+
+  pbkdf2_sha256/hmac_sha2.h
+  pbkdf2_sha256/hmac_sha2.c
+  pbkdf2_sha256/hmac_sha3.h
+  pbkdf2_sha256/hmac_sha3.c
+  pbkdf2_sha256/pbkdf.h
+  pbkdf2_sha256/pbkdf.c
+  pbkdf2_sha256/sha2.h
+  pbkdf2_sha256/sha2.c
+  pbkdf2_sha256/sha3.h
+  pbkdf2_sha256/sha3.c
+
+[Sources.IA32]
+  ntfswin/utilsex.asm
+    
+[Packages]
+  StdLib/StdLib.dec
+  MdePkg/MdePkg.dec
+  
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+ # ShellPkg/ShellPkg.dec
+  IntelFrameworkPkg/IntelFrameworkPkg.dec
+  IntelFrameworkModulePkg/IntelFrameworkModulePkg.dec  
+  EdkCompatibilityPkg/EdkCompatibilityPkg.dec 
+  UefiCpuPkg/UefiCpuPkg.dec
+
+[LibraryClasses]
+  LibC
+  LibStdio
+  DevShell
+  LibUefi
+  DebugLib  
+  UefiLib  
+  UefiApplicationEntryPoint  
+  UefiBootServicesTableLib  
+  UefiRuntimeServicesTableLib  
+  BaseMemoryLib  
+  MemoryAllocationLib  
+  DevicePathLib  
+  PrintLib  
+  BaseLib
+  TimerLib
+
+  
+[Guids]
+  gEfiGlobalVariableGuid						## CONSUMES  ## Variable:L"SecureBoot"
+  gEfiFileInfoGuid
+  gEfiDiskInfoAhciInterfaceGuid
+
+[Protocols]
+gEfiBlockIoProtocolGuid
+gEfiDevicePathProtocolGuid
+gEfiComponentNameProtocolGuid
+gEfiDevicePathToTextProtocolGuid
+gEfiBlockIo2ProtocolGuid
+gEfiSimpleTextInProtocolGuid
+gEfiSimpleTextInputExProtocolGuid
+gEfiGraphicsOutputProtocolGuid
+#gEfiUgaDrawProtocolGuid
+gEfiSimplePointerProtocolGuid
+gEfiSimpleFileSystemProtocolGuid
+gEfiLoadedImageProtocolGuid
+gEfiPrintProtocolGuid
+gEfiMpServiceProtocolGuid
+gEfiDecompressProtocolGuid
+#the following guid is for ssd.
+gEfiAtaPassThruProtocolGuid
+gEfiNvmExpressPassThruProtocolGuid
+gEfiIdeControllerInitProtocolGuid
+gEfiPciIoProtocolGuid
+gEfiExtScsiPassThruProtocolGuid
+#gEfiAtaPassThruProtocolGuid
+gEfiDiskInfoProtocolGuid
+    
+[BuildOptions]
+  #MSFT:*_*_*_CC_FLAGS = /FAsc /W4 /GL- /wd4702 /wd4200 /wd4201 /wd4244 /wd4267 /wd4245 /wd4389 /wd4366 /wd4706 /wd4701 /D __BYTE_ORDER="__LITTLE_ENDIAN" /D __LITTLE_ENDIAN /D HAVE_CONFIG_H /D HAVE_STDDEF_H /D HAVE_STDLIB_H /D HAVE_STDIO_H /D OKR_DEBUG=1 
+ MSFT:*_*_*_CC_FLAGS = /FAsc /W4 /GL- /wd4702 /wd4200 /wd4201 /wd4244 /wd4267 /wd4245 /wd4389 /wd4366 /wd4706 /wd4701 /D __BYTE_ORDER="__LITTLE_ENDIAN" /D __LITTLE_ENDIAN /D HAVE_CONFIG_H /D HAVE_STDDEF_H /D HAVE_STDLIB_H /D HAVE_STDIO_H  
+  #MSFT:*_*_IA32_CC_FLAGS  = /Oi- /W4
+  MSFT:*_*_X64_CC_FLAGS  = /D X64 /WX-
+  #MSFT:*_*_X64_INC  = $(WORKSPACE)\StdLib\Include\X64\machine
+  #GCC:*_*_X64_CC_FLAGS  = -D__BYTE_ORDER="__LITTLE_ENDIAN" -D__LITTLE_ENDIAN -DHAVE_CONFIG_H -DHAVE_STDDEF_H
+  
